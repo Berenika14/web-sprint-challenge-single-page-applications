@@ -7,6 +7,7 @@ const PizzaForm = () => {
         <header>
           <h1>Build your own Pizza</h1>
         </header>
+        <input id="name-input" />
       </form>
     </div>
   );
