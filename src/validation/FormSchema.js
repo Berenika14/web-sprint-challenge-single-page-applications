@@ -6,10 +6,11 @@ const FormSchema = yup.object().shape({
     .trim()
     .required("Name is required")
     .min(2, "name must be at least 2 characters"),
-  sausage: yup.boolean(),
-  pepperoni: yup.boolean(),
-  mushrooms: yup.boolean(),
-  extraCheese: yup.boolean(),
+  topping1: yup.boolean(),
+  topping2: yup.boolean(),
+  topping3: yup.boolean(),
+  topping4: yup.boolean(),
+  special: yup.string().trim(),
 });
 
 export default FormSchema;
