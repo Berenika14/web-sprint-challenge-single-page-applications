@@ -67,13 +67,23 @@ const PizzaForm = () => {
           </label>
           <label>
             Sausage
-            <input type="checkbox" name="Sausage" onChange={changeHandler} />
+            <input type="checkbox" name="sausage" onChange={changeHandler} />
           </label>
           <label>
             Extra Cheese
             <input
               type="checkbox"
-              name="extra cheese"
+              name="extraCheese"
+              onChange={changeHandler}
+            />
+          </label>
+        </div>
+        <div className="instruction">
+          <label>
+            <input
+              id="special-text"
+              name="name"
+              type="text"
               onChange={changeHandler}
             />
           </label>
