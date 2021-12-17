@@ -47,6 +47,37 @@ const PizzaForm = () => {
           type="text"
           id="name-input"
         />
+        <label>
+          Choice of Size
+          <select id="size-dropdown">
+            <option value="8 Inch">8 Inch</option>
+            <option value="10 Inch">10 Inch</option>
+            <option value="14 Inch">14 Inch</option>
+          </select>
+        </label>
+        <div className="toppings">
+          <h4>Add toppings</h4>
+          <label>
+            Pepperoni
+            <input type="checkbox" name="pepperoni" onChange={changeHandler} />
+          </label>
+          <label>
+            Mushroom
+            <input type="checkbox" name="mushrooms" onChange={changeHandler} />
+          </label>
+          <label>
+            Sausage
+            <input type="checkbox" name="Sausage" onChange={changeHandler} />
+          </label>
+          <label>
+            Extra Cheese
+            <input
+              type="checkbox"
+              name="extra cheese"
+              onChange={changeHandler}
+            />
+          </label>
+        </div>
       </form>
     </div>
   );
