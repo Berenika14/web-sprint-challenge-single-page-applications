@@ -40,13 +40,7 @@ useRouteMatch(), makes it easy to build relative route paths and link locations,
 
 1. How would you explain form validation to someone who has never programmed before?
 
-Form validation in React allows an error message to be displayed if the user has not correctly filled out the form with the expected type of input. For example whenever you are required in apps to write a password but if your password is not strong or long enough it throws an error message back saying your password is not long enough, that is basically why we create validation functions
-example how to validate a name input
-name: yup
-.string()
-.trim()
-.required("Name is required")
-.min(2, "name must be at least 2 characters"),
+Form validation in React allows an error message to be displayed if the user has not correctly filled out the form with the expected type of input. For example whenever you are required in apps to write a password but if your password is not strong or long enough it throws an error message back saying your password is not long enough, that is basically why we create validation functions.
 
 1. In 1-2 sentences, define end to end testing.
    End-to-end testing looks at the entire user experience from end to end, it asks "can a user accomplish an action?". End-to-end tests focus on UI and mimic how a user might interact with an app, simulating actual events like button clicks, scrolls, form submits, and the like.

@@ -2,17 +2,18 @@ import React, { useState } from "react";
 import axios from "axios";
 import * as yup from "yup";
 import schema from "../validation/FormSchema";
-import { useHistory } from "react-router-dom";
 
 const initialFormState = {
   name: "",
-  size: "",
-  topping1: true,
-  topping2: true,
-  special: "",
+  //   size: "",
+  //   topping1: true,
+  //   topping2: true,
+  //   special: "",
 };
 const initialFormErrors = {
   name: " ",
+  //   size: "",
+  //   special: "",
 };
 
 const PizzaForm = () => {
@@ -20,20 +21,20 @@ const PizzaForm = () => {
   const [orders, setOrders] = useState([]);
   const [form, setForm] = useState(initialFormState);
   const [errors, setErrors] = useState(initialFormErrors);
-  console.log(errors);
+  //    console.log(errors);
 
   //validation
   const validate = (name, value) => {
-    yup
+    return yup
       .reach(schema, name)
       .validate(value)
       .then(() => {
-        console.log("name is valid");
+        // console.log("name is valid");
         setErrors({ ...errors, [name]: "" });
         return true;
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
         setErrors({ ...errors, [name]: err.errors[0] });
         return false;
       });
@@ -48,23 +49,25 @@ const PizzaForm = () => {
 
   const submitHandler = (ev) => {
     ev.preventDefault();
-    validate().then((valid) => {
-      if (!valid) return;
-      axios.post("https://reqres.in/api/orders", orders).then((res) => {
-        console.log(res.data);
-        // setOrders([res.data, ...orders]);
-        // setForm(initialFormState);
-      });
+    console.log("submitted", form);
+    return axios.post("https://reqres.in/api/orders", orders[0]).then((res) => {
+      console.log(res.data);
+      setOrders([res.data, ...orders]);
+      return res.data;
     });
   };
 
   return (
     <div>
-      <form id="pizza-form">
+      <form id="pizza-form" onSubmit={submitHandler}>
         <header>
           <h1>Build your own Pizza</h1>
         </header>
-        <div className="errors">{errors.name}</div>
+        <div className="errors">
+          <div>{errors.name}</div>
+          {/* <div>{errors.size}</div>
+          <div>{errors.special}</div> */}
+        </div>
         <input
           onChange={changeHandler}
           name="name"
@@ -110,7 +113,7 @@ const PizzaForm = () => {
         </div>
         <div className="orderBtn">
           <label>
-            <button onSubmit={submitHandler} type="submit" id="order-pizza">
+            <button type="submit" id="order-button">
               Add to order
             </button>
           </label>
